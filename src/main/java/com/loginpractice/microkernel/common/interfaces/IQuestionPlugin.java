@@ -4,7 +4,7 @@ import com.loginpractice.microkernel.common.entities.GeneratedQuestion;
 import com.loginpractice.microkernel.common.entities.QuestionRequest;
 
 
-public interface QuestionPlugin {
+public interface IQuestionPlugin {
 
     // Nombre identificador del plugin
     String getName();
@@ -12,6 +12,6 @@ public interface QuestionPlugin {
     // Indica si este plugin sabe generar preguntas del tipo indicado
     boolean supports(String type);
 
-    // Genera una pregunta a partir de la solicitud recibida.
+    // Genera una pregunta a partir de la solicitud recibida
     GeneratedQuestion generate(QuestionRequest request);
 }

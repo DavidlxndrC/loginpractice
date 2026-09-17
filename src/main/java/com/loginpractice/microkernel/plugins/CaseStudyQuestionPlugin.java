@@ -6,7 +6,7 @@ import com.loginpractice.microkernel.pipeline.OptionsValidationFilter;
 import com.loginpractice.microkernel.pipeline.Pipeline;
 import com.loginpractice.microkernel.pipeline.QuestionValidationException;
 import com.loginpractice.microkernel.common.entities.GeneratedQuestion;
-import com.loginpractice.microkernel.common.interfaces.QuestionPlugin;
+import com.loginpractice.microkernel.common.interfaces.IQuestionPlugin;
 import com.loginpractice.microkernel.common.entities.QuestionRequest;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
  Reusa ContentValidationFilter, OptionsValidationFilter y CorrectAnswerValidationFilter
  y agrega su propia regla específica: que el escenario del caso esté suficientemente desarrollado
  */
-public class CaseStudyQuestionPlugin implements QuestionPlugin {
+public class CaseStudyQuestionPlugin implements IQuestionPlugin {
 
     private static final int MIN_CASE_LENGTH = 100;
 

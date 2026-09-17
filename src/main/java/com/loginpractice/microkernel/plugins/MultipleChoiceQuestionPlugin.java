@@ -6,7 +6,7 @@ import com.loginpractice.microkernel.pipeline.CorrectAnswerValidationFilter;
 import com.loginpractice.microkernel.pipeline.OptionsValidationFilter;
 import com.loginpractice.microkernel.pipeline.Pipeline;
 import com.loginpractice.microkernel.common.entities.GeneratedQuestion;
-import com.loginpractice.microkernel.common.interfaces.QuestionPlugin;
+import com.loginpractice.microkernel.common.interfaces.IQuestionPlugin;
 import com.loginpractice.microkernel.common.entities.QuestionRequest;
 
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
  validación (Tuberías y Filtros) antes de generar
  la pregunta, la solicitud pasa por los cuatro filtros requeridos.
  */
-public class MultipleChoiceQuestionPlugin implements QuestionPlugin {
+public class MultipleChoiceQuestionPlugin implements IQuestionPlugin {
 
     private final Pipeline<QuestionRequest> validationPipeline = new Pipeline<>(List.of(
             new ContentValidationFilter(),

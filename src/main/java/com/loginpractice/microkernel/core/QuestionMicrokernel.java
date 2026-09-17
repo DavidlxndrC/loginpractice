@@ -1,7 +1,7 @@
 package com.loginpractice.microkernel.core;
 
 import com.loginpractice.microkernel.common.entities.GeneratedQuestion;
-import com.loginpractice.microkernel.common.interfaces.QuestionPlugin;
+import com.loginpractice.microkernel.common.interfaces.IQuestionPlugin;
 import com.loginpractice.microkernel.common.entities.QuestionRequest;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class QuestionMicrokernel {
     private static final String PROPERTY_PREFIX = "question.";
 
     private final Map<Integer, GeneratedQuestion> questions = new LinkedHashMap<>();
-    private final Map<String, QuestionPlugin> activePlugins = new LinkedHashMap<>();
+    private final Map<String, IQuestionPlugin> activePlugins = new LinkedHashMap<>();
     private final Properties pluginProperties = new Properties();
 
     public QuestionMicrokernel() {
@@ -69,7 +69,7 @@ public class QuestionMicrokernel {
             Class<?> pluginClass = Class.forName(pluginClassName);
             Object pluginObject = pluginClass.getDeclaredConstructor().newInstance();
 
-            if (pluginObject instanceof QuestionPlugin plugin) {
+            if (pluginObject instanceof IQuestionPlugin plugin) {
                 activePlugins.put(type, plugin);
             }
 
@@ -97,7 +97,7 @@ public class QuestionMicrokernel {
         loadPlugin(type.toUpperCase(), pluginClassName);
     }
 
-    public QuestionPlugin getPlugin(String type) {
+    public IQuestionPlugin getPlugin(String type) {
 
         if (type == null) {
             return null;
@@ -113,7 +113,7 @@ public class QuestionMicrokernel {
     // Ejecuta el plugin correspondiente al tipo de la solicitud y devuelve la pregunta generada
     public GeneratedQuestion generateQuestion(QuestionRequest request) {
 
-        QuestionPlugin plugin = getPlugin(request.getType());
+        IQuestionPlugin plugin = getPlugin(request.getType());
 
         if (plugin == null) {
             throw new IllegalArgumentException("No hay un plugin activo para el tipo: " + request.getType());

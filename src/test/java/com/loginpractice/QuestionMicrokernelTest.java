@@ -3,7 +3,7 @@ package com.loginpractice;
 import com.loginpractice.microkernel.core.QuestionMicrokernel;
 import com.loginpractice.microkernel.common.entities.GeneratedQuestion;
 import com.loginpractice.microkernel.common.entities.QuestionClassification;
-import com.loginpractice.microkernel.common.interfaces.QuestionPlugin;
+import com.loginpractice.microkernel.common.interfaces.IQuestionPlugin;
 import com.loginpractice.microkernel.common.entities.QuestionRequest;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -40,7 +40,7 @@ public class QuestionMicrokernelTest {
     @Test
     void shouldReturnPluginForRegisteredType() {
 
-        QuestionPlugin plugin = microkernel.getPlugin("MULTIPLE_CHOICE");
+        IQuestionPlugin plugin = microkernel.getPlugin("MULTIPLE_CHOICE");
 
         assertNotNull(plugin);
         assertTrue(plugin.supports("MULTIPLE_CHOICE"));
