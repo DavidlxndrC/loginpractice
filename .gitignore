@@ -1,0 +1,6 @@
+target/
+database.db
+*.class
+.vscode/
+*.iml
+.idea/

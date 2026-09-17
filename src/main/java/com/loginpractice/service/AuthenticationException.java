@@ -1,0 +1,8 @@
+package com.loginpractice.service;
+
+public class AuthenticationException extends RuntimeException {
+
+    public AuthenticationException(String message) {
+        super(message);
+    }
+}
