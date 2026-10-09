@@ -12,13 +12,13 @@ import com.loginpractice.microkernel.common.entities.QuestionRequest;
 import java.util.List;
 
 /**
- Plugin que genera preguntas de análisis de casos (preguntas basadas en escenarios).
-
- Reusa ContentValidationFilter, OptionsValidationFilter y CorrectAnswerValidationFilter
- y agrega su propia regla específica: que el escenario del caso esté suficientemente desarrollado
+ * Plugin que genera preguntas de análisis de casos (preguntas basadas en escenarios)
+ * 
+ * Reusa ContentValidationFilter, OptionsValidationFilter y CorrectAnswerValidationFilter
+ * y agrega su propia regla específica: que el escenario del caso esté suficientemente desarrollado
+ * CaseStudyQuestionPlugin
  */
 public class CaseStudyQuestionPlugin implements IQuestionPlugin {
-
     private static final int MIN_CASE_LENGTH = 100;
 
     private final Pipeline<QuestionRequest> validationPipeline = new Pipeline<>(List.of(
